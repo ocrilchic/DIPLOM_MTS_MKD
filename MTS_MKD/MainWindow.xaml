@@ -1,0 +1,52 @@
+﻿<Window x:Class="MTS_MKD.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MTS_MKD"
+        mc:Ignorable="d"
+                      Title="АВТОРИЗАЦИЯ" Height="650" Width="1300" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="/home.png">
+
+    <Window.Effect>
+        <DropShadowEffect/>
+    </Window.Effect>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#02010A" Offset="0.15"/>
+                <GradientStop Color="#E1E5EE" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border VerticalAlignment="Top" Background="#02010A" Height="600" CornerRadius="0 0 180 0"/>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="600">
+                <materialDesign:PackIcon Kind="HomeAccount" Width="400" Height="400" Foreground="#E1E5EE" HorizontalAlignment="Center" Margin="0 55 0 0"/>
+                <TextBlock Text="MTS MKD"  Foreground="#E1E5EE" FontFamily="TT Travels Next Trl Blc Outline" FontSize="78" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Width="700">
+                <StackPanel Margin="0 130 0 0">
+                    <TextBlock Text="Добро пожаловать!" FontFamily="TT Travels Next Trl Blc" Foreground="#E1E5EE" FontSize="50" HorizontalAlignment="Center"/>
+                    <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Account" Width="60" Height="60" Foreground="#E1E5EE"/>
+                        <TextBox x:Name="txtBlLogin" materialDesign:HintAssist.Hint="Enter Username" 
+                               Foreground="#E1E5EE" Margin="10 0" Width="450" BorderBrush="#E1E5EE" 
+                               CaretBrush="#E1E5EE" FontFamily="TT Travels Next Trl Bd" SelectionBrush="#FF767B91"
+                               materialDesign:TextFieldAssist.UnderlineBrush="#a31621" FontSize="25" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="ForgotPassword" Width="60" Height="60" Foreground="#E1E5EE"/>
+                        <PasswordBox FontFamily="TT Travels Next Trl Bd" x:Name="txtPassword" Margin="10 0" materialDesign:HintAssist.Hint="********" 
+                                   Foreground="#E1E5EE" Width="450" BorderBrush="#E1E5EE" CaretBrush="#E1E5EE" 
+                                   SelectionBrush="#FF767B91" materialDesign:TextFieldAssist.UnderlineBrush="#a31621" FontSize="25" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <Button Width="300" Height="60" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="5" BorderBrush="#E1E5EE"
+                              Background="#E1E5EE" FontFamily="TT Travels Next Trl Bd" FontSize="25" Foreground="Black" x:Name="btnLogin" Click="btnLogin_Click" Content="Войти" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

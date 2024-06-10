@@ -1,0 +1,49 @@
+﻿<Page
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MTS_MKD.PageUser"
+      xmlns:MTS_MKD="clr-namespace:MTS_MKD" x:Class="MTS_MKD.PageUser.Energy_consumption_of_the_building_Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="950"
+      Title="Energy_consumption_of_the_building_Page">
+
+    <Page.Resources>
+        <MTS_MKD:MTS_MKD_DBDataSet x:Key="mTS_MKD_DBDataSet"/>
+        <CollectionViewSource x:Key="energy_consumption_of_the_buildingViewSource" Source="{Binding Energy_consumption_of_the_building, Source={StaticResource mTS_MKD_DBDataSet}}"/>
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource energy_consumption_of_the_buildingViewSource}">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Height="35"/>
+            <StackPanel Height="500">
+                <DataGrid x:Name="energy_consumption_of_the_buildingDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,10,10,10" Height="480" FontFamily="TT Travels Next Trial Variable Thin Thin" FontSize="10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="idColumn" Binding="{Binding id}" Header="№" IsReadOnly="True" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="id_Full_AdressColumn" Binding="{Binding id_Full_Adress}" Header="№ Дома" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="thermal_energyColumn" Binding="{Binding Thermal_energy}" Header="Тепловая энергия" IsReadOnly="True" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="for_heating_and_ventilation_during_the_heating_periodColumn" Binding="{Binding for_heating_and_ventilation_during_the_heating_period}" Header="для отопления и вентиляции в отопительный период" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="for_hot_water_supplyColumn" Binding="{Binding for_hot_water_supply}" Header="на горячее водоснабжение " Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="electric_EnergyColumn" Binding="{Binding Electric_Energy}" Header="Электрическая энергия" IsReadOnly="True" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="for_general_house_lightingColumn" Binding="{Binding for_general_house_lighting}" Header="на общедомовое освещение" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="for_elevator_equipmentColumn" Binding="{Binding for_elevator_equipment}" Header="на лифтовое оборудование" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="for_water_supply_and_sewerageColumn" Binding="{Binding for_water_supply_and_sewerage}" Header="на водоснабжение и канализацию" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="for_heating_and_ventilation_during_the_heating_period_EEColumn" Binding="{Binding for_heating_and_ventilation_during_the_heating_period_EE}" Header="на отопление и вентиляцию за отопительный период " Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="natural_gasColumn" Binding="{Binding Natural_gas}" Header="Природный газ" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="tap_waterColumn" Binding="{Binding Tap_water}" Header="Водопроводная вода" Width="SizeToHeader"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <StackPanel Height="50" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Width="125" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="5" BorderBrush="#E1E5EE"
+          Background="#E1E5EE" FontFamily="TT Travels Next Trl Bd" FontSize="11" Foreground="Black" Content="УДАЛИТЬ" x:Name="btnDelete" Click="btnDelete_Click" Margin="0 0 10 0"/>
+                <Button Width="125" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="5" BorderBrush="#E1E5EE"
+Background="#E1E5EE" FontFamily="TT Travels Next Trl Bd" FontSize="11" Foreground="Black" Content="СОХРАНИТЬ" x:Name="btnSave" Click="btnSave_Click" Margin="0 0 10 0"/>
+            </StackPanel>
+        </StackPanel>
+        
+
+    </Grid>
+</Page>
